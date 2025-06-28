@@ -104,7 +104,6 @@ end
 createButton("Close This", function()
 	guiVisible = false
 	mainFrame.Visible = false
-	showTip("Press Right Shift to open", 3)
+	
 end)
-
 
