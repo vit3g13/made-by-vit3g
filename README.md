@@ -28,16 +28,18 @@ local function showTip(message, duration)
 end
 
 -- ✅ Zobrazí zprávu po spuštění
-showTip("Successfully loaded", 3)
 
 
 -- Right Shift pro toggle menu
 local guiVisible = true
 
+-- 💡 VLASTNÍ POZICE MENU (změň podle potřeby)
+local customPosition = UDim2.new(-0, 555, 0, 600) -- Vlevo nahoře (x, offsetX, y, offsetY)
+
 -- Hlavní menu (frame)
 local mainFrame = Instance.new("Frame")
 mainFrame.Size = UDim2.new(0, 250, 0, 80)
-mainFrame.Position = UDim2.new(0.5, -125, 0.5, -150)
+mainFrame.Position = customPosition -- ✅ Používá vlastní pozici
 mainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 mainFrame.BorderSizePixel = 0
 mainFrame.Active = true
@@ -96,20 +98,18 @@ local function createButton(text, callback)
 	button.TextColor3 = Color3.fromRGB(0, 0, 0)
 	button.Text = text
 	button.Font = Enum.Font.SourceSans
-	button.TextSize = 25
+	button.TextSize = 35
 	button.AutoButtonColor = true
 	button.Parent = buttonHolder
 
 	button.MouseButton1Click:Connect(callback)
 end
 
-
 -- Zavřít tlačítkem
 createButton("Close This", function()
 	guiVisible = false
 	mainFrame.Visible = false
 	showTip("Press Right Shift to open", 3)
-	
 end)
 
 -- Toggle pomocí RightShift
