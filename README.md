@@ -58,11 +58,6 @@ closeButton.Font = Enum.Font.SourceSansBold
 closeButton.TextSize = 18
 closeButton.Parent = mainFrame
 
-closeButton.MouseButton1Click:Connect(function()
-	guiVisible = false
-	mainFrame.Visible = false
-	showTip("Press Right Shift to open", 3)
-end)
 
 -- Název panelu
 local titleLabel = Instance.new("TextLabel")
@@ -112,10 +107,4 @@ createButton("Close This", function()
 	showTip("Press Right Shift to open", 3)
 end)
 
--- Toggle pomocí RightShift
-UserInputService.InputBegan:Connect(function(input, gameProcessed)
-	if input.KeyCode == Enum.KeyCode.RightShift and not gameProcessed then
-		guiVisible = not guiVisible
-		mainFrame.Visible = guiVisible
-	end
-end)
+
